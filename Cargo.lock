@@ -327,7 +327,7 @@ dependencies = [
 [[package]]
 name = "solana-nostd-entrypoint"
 version = "0.6.2"
-source = "git+https://github.com/cavemanloverboy/solana-nostd-entrypoint#b752d70d13cad211dfa050caf75d0572ab454a64"
+source = "git+https://github.com/cavemanloverboy/solana-nostd-entrypoint?rev=b752d70#b752d70d13cad211dfa050caf75d0572ab454a64"
 dependencies = [
  "solana-msg",
  "solana-program-entrypoint",
