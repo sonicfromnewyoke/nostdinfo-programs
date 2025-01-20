@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+solana-define-syscall.workspace = true
 solana-nostd-entrypoint.workspace = true
 solana-program-entrypoint.workspace = true
 solana-program-error.workspace = true

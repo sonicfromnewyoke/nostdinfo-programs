@@ -2,9 +2,12 @@
 
 use core::mem::MaybeUninit;
 
+use solana_define_syscall::define_syscall;
 use solana_nostd_entrypoint::{AccountInfoC, InstructionC, NoStdAccountInfo};
 use solana_program_entrypoint::ProgramResult;
 use solana_program_error::ProgramError;
+
+define_syscall!(fn sol_invoke_signed_c(instruction_addr: *const u8, account_infos_addr: *const u8, account_infos_len: u64, signers_seeds_addr: *const u8, signers_seeds_len: u64) -> u64);
 
 #[inline(always)]
 pub fn invoke<const ACCOUNTS: usize>(
@@ -77,7 +80,7 @@ pub fn invoke_unchecked<const ACCOUNTS: usize>(
 ) -> ProgramResult {
     #[cfg(target_os = "solana")]
     unsafe {
-        solana_program::syscalls::sol_invoke_signed_c(
+        sol_invoke_signed_c(
             instruction as *const InstructionC as *const u8,
             account_infos.as_ptr() as *const u8,
             account_infos.len() as u64,
