@@ -1,6 +1,7 @@
 use nostd_entrypoint_invoke::invoke_signed;
 use solana_nostd_entrypoint::{AccountMetaC, InstructionC, NoStdAccountInfo};
-use solana_program::{entrypoint::ProgramResult, pubkey::Pubkey};
+use solana_program_entrypoint::ProgramResult;
+use solana_pubkey::Pubkey;
 
 /// Change the entity authorized to execute nonce instructions on the account.
 ///
@@ -20,7 +21,7 @@ pub struct AuthorizeNonceAccount<'a, 'b> {
     pub new_authority: &'b Pubkey,
 }
 
-impl<'a, 'b> AuthorizeNonceAccount<'a, 'b> {
+impl AuthorizeNonceAccount<'_, '_> {
     #[inline(always)]
     pub fn invoke(&self) -> ProgramResult {
         self.invoke_signed(&[])

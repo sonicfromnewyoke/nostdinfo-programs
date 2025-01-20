@@ -2,10 +2,9 @@
 
 use core::mem::MaybeUninit;
 
-use solana_nostd_entrypoint::{
-    solana_program::entrypoint::ProgramResult, AccountInfoC, InstructionC, NoStdAccountInfo,
-};
-use solana_program::program_error::ProgramError;
+use solana_nostd_entrypoint::{AccountInfoC, InstructionC, NoStdAccountInfo};
+use solana_program_entrypoint::ProgramResult;
+use solana_program_error::ProgramError;
 
 #[inline(always)]
 pub fn invoke<const ACCOUNTS: usize>(

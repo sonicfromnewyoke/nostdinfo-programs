@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-solana-program.workspace = true
-solana-nostd-entrypoint.workspace = true
 nostd-entrypoint-invoke = { path = "../invoke" }
+solana-nostd-entrypoint.workspace = true
+solana-program-entrypoint.workspace = true
+solana-pubkey.workspace = true

@@ -1,6 +1,7 @@
 use nostd_entrypoint_invoke::invoke_signed;
 use solana_nostd_entrypoint::{AccountMetaC, InstructionC, NoStdAccountInfo};
-use solana_program::{entrypoint::ProgramResult, pubkey::Pubkey};
+use solana_program_entrypoint::ProgramResult;
+use solana_pubkey::Pubkey;
 
 /// Drive state of Uninitialized nonce account to Initialized, setting the nonce value.
 ///
@@ -31,7 +32,7 @@ pub struct InitializeNonceAccount<'a, 'b> {
     pub authority: &'b Pubkey,
 }
 
-impl<'a, 'b> InitializeNonceAccount<'a, 'b> {
+impl InitializeNonceAccount<'_, '_> {
     #[inline(always)]
     pub fn invoke(&self) -> ProgramResult {
         self.invoke_signed(&[])

@@ -1,6 +1,6 @@
 use nostd_entrypoint_invoke::invoke_signed;
 use solana_nostd_entrypoint::{AccountMetaC, InstructionC, NoStdAccountInfo};
-use solana_program::entrypoint::ProgramResult;
+use solana_program_entrypoint::ProgramResult;
 
 /// Allocate space in a (possibly new) account without funding.
 ///
@@ -14,7 +14,7 @@ pub struct Allocate<'a> {
     pub space: u64,
 }
 
-impl<'a> Allocate<'a> {
+impl Allocate<'_> {
     #[inline(always)]
     pub fn invoke(&self) -> ProgramResult {
         self.invoke_signed(&[])

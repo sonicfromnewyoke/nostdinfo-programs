@@ -1,6 +1,6 @@
 #![no_std]
 
-use solana_nostd_entrypoint::solana_program::declare_id;
+use solana_pubkey::declare_id;
 
 pub mod instructions;
 

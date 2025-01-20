@@ -1,6 +1,7 @@
 use nostd_entrypoint_invoke::invoke_signed;
 use solana_nostd_entrypoint::{AccountMetaC, InstructionC, NoStdAccountInfo};
-use solana_program::{entrypoint::ProgramResult, pubkey::Pubkey};
+use solana_program_entrypoint::ProgramResult;
+use solana_pubkey::Pubkey;
 
 /// Assign account to a program
 ///
@@ -14,7 +15,7 @@ pub struct Assign<'a, 'b> {
     pub owner: &'b Pubkey,
 }
 
-impl<'a, 'b> Assign<'a, 'b> {
+impl Assign<'_, '_> {
     #[inline(always)]
     pub fn invoke(&self) -> ProgramResult {
         self.invoke_signed(&[])

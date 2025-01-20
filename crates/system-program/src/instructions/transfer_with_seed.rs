@@ -1,6 +1,7 @@
 use nostd_entrypoint_invoke::invoke_signed;
 use solana_nostd_entrypoint::{AccountMetaC, InstructionC, NoStdAccountInfo};
-use solana_program::{entrypoint::ProgramResult, pubkey::Pubkey};
+use solana_program_entrypoint::ProgramResult;
+use solana_pubkey::Pubkey;
 
 /// Transfer lamports from a derived address.
 ///
@@ -32,7 +33,7 @@ pub struct TransferWithSeed<'a, 'b, 'c> {
     pub owner: &'c Pubkey,
 }
 
-impl<'a, 'b, 'c> TransferWithSeed<'a, 'b, 'c> {
+impl TransferWithSeed<'_, '_, '_> {
     #[inline(always)]
     pub fn invoke(&self) -> ProgramResult {
         self.invoke_signed(&[])

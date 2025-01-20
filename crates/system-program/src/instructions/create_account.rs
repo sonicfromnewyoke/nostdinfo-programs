@@ -1,6 +1,7 @@
 use nostd_entrypoint_invoke::invoke_signed;
 use solana_nostd_entrypoint::{AccountMetaC, InstructionC, NoStdAccountInfo};
-use solana_program::{entrypoint::ProgramResult, pubkey::Pubkey};
+use solana_program_entrypoint::ProgramResult;
+use solana_pubkey::Pubkey;
 
 /// Create a new account.
 ///
@@ -24,7 +25,7 @@ pub struct CreateAccount<'a> {
     pub owner: &'a Pubkey,
 }
 
-impl<'a> CreateAccount<'a> {
+impl CreateAccount<'_> {
     #[inline(always)]
     pub fn invoke(&self) -> ProgramResult {
         self.invoke_signed(&[])

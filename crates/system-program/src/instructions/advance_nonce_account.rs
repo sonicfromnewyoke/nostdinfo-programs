@@ -1,6 +1,6 @@
 use nostd_entrypoint_invoke::invoke_signed;
 use solana_nostd_entrypoint::{AccountMetaC, InstructionC, NoStdAccountInfo};
-use solana_program::entrypoint::ProgramResult;
+use solana_program_entrypoint::ProgramResult;
 
 /// Consumes a stored nonce, replacing it with a successor.
 ///
@@ -19,7 +19,7 @@ pub struct AdvanceNonceAccount<'a> {
     pub authority: &'a NoStdAccountInfo,
 }
 
-impl<'a> AdvanceNonceAccount<'a> {
+impl AdvanceNonceAccount<'_> {
     #[inline(always)]
     pub fn invoke(&self) -> ProgramResult {
         self.invoke_signed(&[])

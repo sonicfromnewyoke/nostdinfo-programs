@@ -3,5 +3,7 @@ members = ["crates/*"]
 resolver = "2"
 
 [workspace.dependencies]
-solana-program = "1.18"
 solana-nostd-entrypoint = { git = "https://github.com/cavemanloverboy/solana-nostd-entrypoint" }
+solana-program-entrypoint = "2.1"
+solana-program-error = "2.1"
+solana-pubkey = "2.1"

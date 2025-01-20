@@ -1,6 +1,6 @@
 use nostd_entrypoint_invoke::invoke_signed;
 use solana_nostd_entrypoint::{AccountMetaC, InstructionC, NoStdAccountInfo};
-use solana_program::entrypoint::ProgramResult;
+use solana_program_entrypoint::ProgramResult;
 
 /// Transfer lamports.
 ///
@@ -18,7 +18,7 @@ pub struct Transfer<'a> {
     pub lamports: u64,
 }
 
-impl<'a> Transfer<'a> {
+impl Transfer<'_> {
     #[inline(always)]
     pub fn invoke(&self) -> ProgramResult {
         self.invoke_signed(&[])
