@@ -161,6 +161,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "nostd-token-program"
+version = "0.1.0"
+dependencies = [
+ "nostd-entrypoint-invoke",
+ "solana-nostd-entrypoint",
+ "solana-program-entrypoint",
+ "solana-pubkey",
+]
+
+[[package]]
 name = "num-traits"
 version = "0.2.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
